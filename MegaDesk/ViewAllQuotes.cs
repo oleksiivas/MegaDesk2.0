@@ -29,7 +29,7 @@ namespace MegaDesk_Earl
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = GetDeskQuotes();
-           
+            dataGridView1.Refresh();
         }
     }
 }
