@@ -57,6 +57,7 @@
             this.ViewQuotesButton.TabIndex = 1;
             this.ViewQuotesButton.Text = "&View Quotes";
             this.ViewQuotesButton.UseVisualStyleBackColor = true;
+            this.ViewQuotesButton.Click += new System.EventHandler(this.ViewQuotesButton_Click);
             // 
             // SearchQuotes
             // 

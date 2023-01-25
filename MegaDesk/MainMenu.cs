@@ -32,5 +32,12 @@ namespace MegaDesk_Earl
         {
 
         }
+
+        private void ViewQuotesButton_Click(object sender, EventArgs e)
+        {
+            List<DeskQuote> list = new List<DeskQuote>();
+            ViewAllQuotes quotes = new ViewAllQuotes(list);
+            quotes.Show(this);
+        }
     }
 }
