@@ -8,6 +8,16 @@ namespace MegaDesk_Earl
 {
     public class DeskQuote
     {
+        public string FirstName { get { return custFirstName; }  }
+        public string LastName { get { return custFirstName; } }
+        public DateTime Date { get { return date; } }
+        public int RushOrder { get { return rushOrder; } }
+        public int Total { get { return getTotalPrice(); } }
+        public int Area { get { return this.desk.Area; } }
+        public int Drawers { get { return this.desk.Drawers; } }
+        public Material Material { get { return this.desk.Material; } }
+
+
         private Desk desk;
         private int rushOrder;
         private string custFirstName;

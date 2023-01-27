@@ -20,6 +20,11 @@ namespace MegaDesk_Earl
         private int depth;
         private Material surfaceMaterial;
         private int drawers;
+        public int Area { get { return getArea(); } }
+        public Material Material{ get { return getSurfaceMaterial(); } }
+        public int Width { get { return width; } }
+        public int Depth { get { return depth; } }  
+        public int Drawers { get { return getDrawers(); } }
         public Desk(int width, int depth, Material surfaceMaterial, int drawers)
         {
             this.width = width;
