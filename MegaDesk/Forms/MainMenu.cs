@@ -17,7 +17,7 @@ namespace MegaDesk_Earl
             SearchQuotes searchForm = new SearchQuotes();
             searchForm.Tag = this;
             searchForm.Show(this);
-            this.Hide();
+            //this.Hide();
         }
 
         private void AddNewQuote(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace MegaDesk_Earl
             AddQuote addQuoteForm = new AddQuote();
             addQuoteForm.Tag = this;
             addQuoteForm.Show(this);
-            this.Hide();
+            //this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
