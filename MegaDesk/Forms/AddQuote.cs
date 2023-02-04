@@ -13,9 +13,13 @@ namespace MegaDesk_Earl
     
     public partial class AddQuote : Form
     {
-        public AddQuote()
+        public List<DeskQuote> deskQuotes { get; set; }
+
+        public AddQuote(List<DeskQuote> quotes)
         {
             InitializeComponent();
+            deskQuotes = quotes;
+
             var datasource = new List<MaterialSelection>();
             foreach(var mat in Enum.GetNames(typeof(Material))){
                 datasource.Add(new MaterialSelection() { Name = mat, Value = (Material)Enum.Parse(typeof(Material), mat) });
@@ -99,7 +103,14 @@ namespace MegaDesk_Earl
                 FirstNameBox.BackColor = Color.White;
                 LastNameBox.BackColor = Color.White;
                 Desk desk = new Desk((int)widthControl.Value, (int)depthControl.Value, (Material)surfaceComboBox.SelectedValue, (int)drawersControl.Value);
-                DeskQuote quote = new DeskQuote(desk, getRushOrder(), FirstNameBox.Text, LastNameBox.Text);
+                DeskQuote quote = new DeskQuote()
+                {
+                    FirstName = FirstNameBox.Text,
+                    LastName = LastNameBox.Text,
+                    RushOrder = getRushOrder(),
+                    Desk = desk
+                };
+                deskQuotes.Add(quote);
 
                 DisplayQuote form = new DisplayQuote(quote);
                 form.Tag = this.Tag;
