@@ -1,14 +1,22 @@
+using Newtonsoft.Json;
+
 namespace MegaDesk_Earl
 {
     public partial class MainMenu : Form
     {
+        List<DeskQuote> quotes { get; set; }
+
         public MainMenu()
         {
+            var json = File.ReadAllText("quotes.json");
+            quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(json);
+
             InitializeComponent();
         }
 
         private void exit(object sender, EventArgs e)
         {
+            File.WriteAllText("quotes.json", JsonConvert.SerializeObject(quotes));
             Application.Exit();
         }
 
@@ -22,7 +30,7 @@ namespace MegaDesk_Earl
 
         private void AddNewQuote(object sender, EventArgs e)
         {
-            AddQuote addQuoteForm = new AddQuote();
+            AddQuote addQuoteForm = new AddQuote(quotes);
             addQuoteForm.Tag = this;
             addQuoteForm.Show(this);
             //this.Hide();

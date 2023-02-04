@@ -8,45 +8,30 @@ namespace MegaDesk_Earl
 {
     public class DeskQuote
     {
-        public string FirstName { get { return custFirstName; }  }
-        public string LastName { get { return custFirstName; } }
-        public DateTime Date { get { return date; } }
-        public int RushOrder { get { return rushOrder; } }
-        public int Total { get { return getTotalPrice(); } }
-        public int Area { get { return this.desk.Area; } }
-        public int Drawers { get { return this.desk.Drawers; } }
-        public Material Material { get { return this.desk.Material; } }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime Date { get; set; }
+        public int RushOrder { get; set; }
+        public Desk Desk { get; set; }
 
+        public DeskQuote() { }
 
-        private Desk desk;
-        private int rushOrder;
-        private string custFirstName;
-        private string custLastName;
-        private DateTime date;
-        public DeskQuote(Desk desk, int rushOrder, string custFirstName, string custLastName) {
-            this.desk = desk;
-            this.rushOrder = rushOrder;
-            this.custFirstName = custFirstName;
-            this.custLastName = custLastName;
-            this.date = DateTime.Now;
+        public DeskQuote(string FirstName, string LastName, DateTime Date, int RushOrder, Desk Desk)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Date = Date;
+            this.RushOrder = RushOrder;
+            this.Desk = Desk;
         }
         public int getBasePrice()
         {
             return 200;
         }
 
-        public DateTime getDate()
-        {
-            return date;
-        }
-        public int getAreaPrice()
-        {
-            return desk.getArea();
-        }
-
         public int getSurfacePrice()
         {
-            switch(desk.getSurfaceMaterial())
+            switch(Desk.SurfaceMaterial)
             {
                 case Material.VENEER:
 
@@ -65,16 +50,9 @@ namespace MegaDesk_Earl
         }
         public int getDrawerPrice()
         {
-            return 50 * desk.getDrawers();
+            return 50 * Desk.Drawers;
         }
 
-        public string getCustFirstName()
-        {
-            return custFirstName;
-        }
-        public string getCustLastName() { 
-            return custLastName;
-        }
         public int[,] getRushOrder()
         {
             const string FILENAME = @"..\..\..\rushOrderPrices.txt";
@@ -100,12 +78,12 @@ namespace MegaDesk_Earl
 
         public int getRushOrderPrice()
         {
-            if(rushOrder == 14)
+            if(RushOrder == 14)
             {
                 return 0;
-            }else if(rushOrder == 3)
+            }else if(RushOrder == 3)
             {
-                int area = desk.getArea();
+                int area = Desk.getArea();
                 if(area < 1000)
                 {
                     return getRushOrder()[0,0];
@@ -117,9 +95,9 @@ namespace MegaDesk_Earl
                 {
                     return getRushOrder()[0, 2];
                 }
-            }else if(rushOrder == 5)
+            }else if(RushOrder == 5)
             {
-                int area = desk.getArea();
+                int area = Desk.getArea();
                 if (area < 1000)
                 {
                     return getRushOrder()[1, 0];
@@ -136,7 +114,7 @@ namespace MegaDesk_Earl
             else
             {
                 // rush order is 7
-                int area = desk.getArea();
+                int area = Desk.getArea();
                 if (area < 1000)
                 {
                     return getRushOrder()[2, 0];
@@ -155,7 +133,7 @@ namespace MegaDesk_Earl
 
         public int getTotalPrice()
         {
-            return getAreaPrice() +getBasePrice()+ getRushOrderPrice() + getDrawerPrice() + getSurfacePrice();
+            return Desk.getArea() +getBasePrice()+ getRushOrderPrice() + getDrawerPrice() + getSurfacePrice();
         }
     }
 }
