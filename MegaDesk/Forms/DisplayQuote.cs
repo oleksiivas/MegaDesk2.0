@@ -18,13 +18,13 @@ namespace MegaDesk_Earl
             InitializeComponent();
             this.quote = quote;
             CustomerText.Text = $"{quote.FirstName} {quote.LastName}";
-            CostText.Text = $"{quote.getTotalPrice()}";
+            CostText.Text = $"$ {quote.getTotalPrice()}";
             DateText.Text = $"{quote.Date}";
-            rushOrderCostText.Text = $"{quote.getRushOrderPrice()}";
-            baseCostText.Text = $"{quote.getBasePrice()}";
-            surfaceAreaCostText.Text = $"{quote.Desk.getArea()}";
-            drawerCostText.Text = $"{quote.getDrawerPrice()}";
-            materialCostText.Text = $"{quote.getSurfacePrice()}";
+            rushOrderCostText.Text = $"$ {quote.getRushOrderPrice()}";
+            baseCostText.Text = $"$ {quote.getBasePrice()}";
+            surfaceAreaCostText.Text = $"$ {quote.Desk.getArea()}";
+            drawerCostText.Text = $"$ {quote.getDrawerPrice()}";
+            materialCostText.Text = $"$ {quote.getSurfacePrice()}";
             
         }
 
