@@ -14,7 +14,10 @@ namespace MegaDesk_Earl
         public int RushOrder { get; set; }
         public Desk Desk { get; set; }
 
-        public DeskQuote() { }
+        public DeskQuote() 
+        {
+            Date = DateTime.Now;
+        }
 
         public DeskQuote(string FirstName, string LastName, DateTime Date, int RushOrder, Desk Desk)
         {
