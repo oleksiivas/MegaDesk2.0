@@ -22,7 +22,7 @@ namespace MegaDesk_Earl
 
         private void ShowSearchQuotesForm(object sender, EventArgs e)
         {
-            SearchQuotes searchForm = new SearchQuotes();
+            SearchQuotes searchForm = new SearchQuotes(quotes);
             searchForm.Tag = this;
             searchForm.Show(this);
             //this.Hide();
