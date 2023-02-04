@@ -58,7 +58,7 @@ namespace MegaDesk_Earl
 
         public int[,] getRushOrder()
         {
-            const string FILENAME = @"..\..\..\rushOrderPrices.txt";
+            const string FILENAME = @"Data\rushOrderPrices.txt";
             int[,] rushOrderMatrix = new int[3, 3]; 
             try
             {

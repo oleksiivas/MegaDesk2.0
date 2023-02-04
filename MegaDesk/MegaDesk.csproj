@@ -10,6 +10,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\quotes.json" />
+    <None Remove="Data\rushOrderPrices.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\quotes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\rushOrderPrices.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 

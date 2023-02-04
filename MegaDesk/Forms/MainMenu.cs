@@ -8,7 +8,7 @@ namespace MegaDesk_Earl
 
         public MainMenu()
         {
-            var json = File.ReadAllText("..\\..\\..\\quotes.json");
+            var json = File.ReadAllText(@"Data\quotes.json");
             quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(json);
 
             InitializeComponent();
@@ -16,7 +16,7 @@ namespace MegaDesk_Earl
 
         private void exit(object sender, EventArgs e)
         {
-            File.WriteAllText("..\\..\\..\\quotes.json", JsonConvert.SerializeObject(quotes));
+            File.WriteAllText(@"Data\quotes.json", JsonConvert.SerializeObject(quotes));
             Application.Exit();
         }
 
