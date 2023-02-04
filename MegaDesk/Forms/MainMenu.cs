@@ -16,7 +16,6 @@ namespace MegaDesk_Earl
 
         private void exit(object sender, EventArgs e)
         {
-            File.WriteAllText(@"Data\quotes.json", JsonConvert.SerializeObject(quotes));
             Application.Exit();
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace MegaDesk_Earl
 {
@@ -103,6 +104,7 @@ namespace MegaDesk_Earl
                 FirstNameBox.BackColor = Color.White;
                 LastNameBox.BackColor = Color.White;
                 Desk desk = new Desk((int)widthControl.Value, (int)depthControl.Value, (Material)surfaceComboBox.SelectedValue, (int)drawersControl.Value);
+                
                 DeskQuote quote = new DeskQuote()
                 {
                     FirstName = FirstNameBox.Text,
@@ -110,7 +112,9 @@ namespace MegaDesk_Earl
                     RushOrder = getRushOrder(),
                     Desk = desk
                 };
+                
                 deskQuotes.Add(quote);
+                File.WriteAllText(@"Data\quotes.json", JsonConvert.SerializeObject(deskQuotes));
 
                 DisplayQuote form = new DisplayQuote(quote);
                 form.Tag = this.Tag;
